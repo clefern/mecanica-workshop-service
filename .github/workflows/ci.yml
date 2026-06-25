@@ -25,3 +25,11 @@ jobs:
         run: mvn --batch-mode verify
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Relatório JaCoCo
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-report-workshop-service
+          path: target/site/jacoco/
+          retention-days: 7
