@@ -13,6 +13,12 @@ RUN mvn --batch-mode package -DskipTests -q
 
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
+RUN apk add --no-cache wget unzip && \
+    mkdir -p /app/newrelic && \
+    wget -q -O /tmp/newrelic.zip https://download.newrelic.com/newrelic/java-agent/newrelic-agent/current/newrelic-java.zip && \
+    unzip -j /tmp/newrelic.zip newrelic/newrelic.jar -d /app/newrelic/ && \
+    rm /tmp/newrelic.zip && \
+    apk del wget unzip
 COPY --from=build /app/target/mecanica-workshop-service-*.jar app.jar
 EXPOSE 8083
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-javaagent:/app/newrelic/newrelic.jar", "-jar", "app.jar"]
