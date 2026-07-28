@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    uses: clefern/fiap-tc-mecanica-pipelines/.github/workflows/test.yml@develop
+    uses: clefern/fiap-tc-mecanica-pipelines/.github/workflows/test.yml@main
     with:
       service-name: workshop-service
     secrets:

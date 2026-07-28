@@ -22,7 +22,7 @@ on:
 
 jobs:
   build:
-    uses: clefern/fiap-tc-mecanica-pipelines/.github/workflows/build.yml@develop
+    uses: clefern/fiap-tc-mecanica-pipelines/.github/workflows/build.yml@main
     with:
       ecr_repository: ${{ inputs.ecr_repository }}
     secrets:
@@ -32,7 +32,7 @@ jobs:
 
   deploy:
     needs: [build]
-    uses: clefern/fiap-tc-mecanica-pipelines/.github/workflows/deploy.yml@develop
+    uses: clefern/fiap-tc-mecanica-pipelines/.github/workflows/deploy.yml@main
     with:
       environment: ${{ inputs.environment }}
       k8s_deployment: ${{ inputs.k8s_deployment }}
