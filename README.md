@@ -23,6 +23,10 @@ workshop-service → [ExecucaoFinalizadaEvent | FalhaNaExecucaoEvent] → os-ser
 
 Swagger: `http://localhost:8083/swagger-ui.html`
 
+Collection Insomnia com o fluxo E2E completo dos 4 microsserviços:
+[`Insomnia_export.yaml`](https://github.com/clefern/mecanica-infra-ms/blob/main/mecanica-fiap/Insomnia_export.yaml)
+(repo `mecanica-infra-ms`).
+
 ## Mensagens RabbitMQ
 
 ### Consome
